@@ -1,4 +1,3 @@
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
@@ -20,7 +19,7 @@ public class DebetcardTest {
     void setUp() {
         EdgeOptions options = new EdgeOptions();
         driver = new EdgeDriver(options);
-        driver.get("http://localhost:9999/");
+
     }
 
     @AfterEach
@@ -31,6 +30,7 @@ public class DebetcardTest {
 
     @Test
     void test() {
+        driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Болдырев Анатолий");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79086118185");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
@@ -38,7 +38,6 @@ public class DebetcardTest {
         String expected = "  Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
         String actual = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText();
         Assertions.assertEquals(expected, actual);
-
     }
 }
 
