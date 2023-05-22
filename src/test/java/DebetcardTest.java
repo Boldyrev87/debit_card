@@ -20,6 +20,7 @@ public class DebetcardTest {
     void setUp() {
         EdgeOptions options = new EdgeOptions();
         driver = new EdgeDriver(options);
+        driver.get("http://localhost:9999/");
     }
 
     @AfterEach
@@ -30,7 +31,6 @@ public class DebetcardTest {
 
     @Test
     void test() {
-        driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Болдырев Анатолий");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79086118185");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
