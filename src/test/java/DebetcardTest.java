@@ -1,4 +1,5 @@
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +12,7 @@ public class DebetcardTest {
     @BeforeAll
     static void setUpAll() {
 
-        System.setProperty("webdriver.edge.driver", "C:\\tmp\\msedgedriver.exe");
+        WebDriverManager.edgedriver().setup();
     }
 
     @BeforeEach
