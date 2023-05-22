@@ -4,6 +4,7 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 
 
 public class DebetcardTest {
@@ -17,7 +18,8 @@ public class DebetcardTest {
 
     @BeforeEach
     void setUp() {
-        driver = new EdgeDriver();
+        EdgeOptions options = new EdgeOptions();
+        driver = new EdgeDriver(options);
     }
 
     @AfterEach
