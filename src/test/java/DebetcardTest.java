@@ -2,9 +2,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
-
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class DebetcardTest {
     private WebDriver driver;
@@ -12,14 +11,16 @@ public class DebetcardTest {
     @BeforeAll
     static void setUpAll() {
 
-        WebDriverManager.edgedriver().setup();
+        WebDriverManager.chromedriver().setup();
     }
 
     @BeforeEach
     void setUp() {
-        EdgeOptions options = new EdgeOptions();
-        driver = new EdgeDriver(options);
-
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
     }
 
     @AfterEach
